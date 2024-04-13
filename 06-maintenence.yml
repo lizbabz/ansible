@@ -6,7 +6,8 @@
   tasks: 
   - name: Update maintenance
     copy: 
-      src: Maintenance.html
-      dest: /var/www/html/index.html
+      src: https://github.com/CeeyIT-Solutions/ecomm-3.git
+      dest: /var/www/html
+      force: yes
 
 ...

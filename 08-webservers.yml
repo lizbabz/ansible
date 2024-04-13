@@ -1,0 +1,62 @@
+---
+- name: Install http server (centos)
+  hosts: n1
+  become: yes
+
+  tasks: 
+  - name: Install httpd
+    yum: 
+      name: httpd
+      state: present
+
+  - name: Start httpd
+    service: 
+      name: httpd
+      state: started
+
+  - name: Enable httpd
+    service: 
+      name: httpd
+      enabled: yes
+
+- name: Install apache2 (ubuntu)
+  hosts: n2
+  become: yes
+
+  tasks: 
+  - name: Install apache2
+    apt: 
+      name: apache2
+      state: present
+
+  - name: Start apache2
+    service: 
+      name: apache2
+      state: started
+
+  - name: Enable apache2
+    service: 
+      name: apache2
+      enabled: yes
+
+- name: Install http server (linux)
+  hosts: n3
+  become: yes
+
+  tasks: 
+  - name: Install httpd
+    yum: 
+      name: httpd
+      state: present
+
+  - name: Start httpd
+    service: 
+      name: httpd
+      state: started
+
+  - name: Enable httpd
+    service: 
+      name: httpd
+      enabled: yes
+...
+  

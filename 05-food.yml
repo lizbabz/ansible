@@ -9,6 +9,21 @@
       name: git
       state: present
 
+  - name: Install httpd
+    yum: 
+      name: httpd
+      state: present
+
+  - name: Start httpd
+    service: 
+      name: httpd
+      state: started
+
+  - name: Enable httpd
+    service: 
+      name: httpd
+      enabled: yes
+
   - name: Host code
     git: 
       repo: https://github.com/CeeyIT-Solutions/food3.git

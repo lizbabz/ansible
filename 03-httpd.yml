@@ -9,13 +9,11 @@
       name: httpd
       state: present
 
-  tasks: 
   - name: Start httpd
     service: 
       name: httpd
       state: started
 
-  tasks: 
   - name: Enable httpd
     service: 
       name: httpd

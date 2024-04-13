@@ -1,6 +1,6 @@
 ---
 - name: Install http server (centos)
-  hosts: n1
+  hosts: all
   become: yes
 
   tasks: 
@@ -8,19 +8,22 @@
     yum: 
       name: httpd
       state: present
+    when: ansible_distribution == "Centos"
 
   - name: Start httpd
     service: 
       name: httpd
       state: started
+    when: ansible_distribution == "Centos"  
 
   - name: Enable httpd
     service: 
       name: httpd
       enabled: yes
+    when: ansible_distribution == "Centos"
 
 - name: Install apache2 (ubuntu)
-  hosts: n2
+  hosts: all
   become: yes
 
   tasks: 
@@ -28,35 +31,41 @@
     apt: 
       name: apache2
       state: present
+    when: ansible_distribution == "Ubuntu"
 
   - name: Start apache2
     service: 
       name: apache2
       state: started
+    when: ansible_distribution == "Ubuntu"
 
   - name: Enable apache2
     service: 
       name: apache2
       enabled: yes
+    when: ansible_distribution == "Ubuntu"
 
 - name: Install http server (linux)
-  hosts: n3
+  hosts: all
   become: yes
 
   tasks: 
   - name: Install httpd
-    yum: 
+    dnf: 
       name: httpd
       state: present
+    when: ansible_distribution == "Amazon"
 
   - name: Start httpd
     service: 
       name: httpd
       state: started
+    when: ansible_distribution == "Amazon"
 
   - name: Enable httpd
     service: 
       name: httpd
       enabled: yes
+    when: ansible_distribution == "Amazon"
 ...
   

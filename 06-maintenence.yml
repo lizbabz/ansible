@@ -4,10 +4,15 @@
   become: yes
 
   tasks: 
-  - name: Update maintenance
-    copy: 
-      src: https://github.com/CeeyIT-Solutions/ecomm-3.git
-      dest: /var/www/html
+  - name: Install git
+    yum: 
+      name: git
+      state: present
+
+  - name: Host code
+    git: 
+      repo: https://github.com/CeeyIT-Solutions/ecomm-3.git
+      dest: /var/www/html/
       force: yes
 
 ...
